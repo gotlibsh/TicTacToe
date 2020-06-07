@@ -177,15 +177,17 @@ int main(int argc, char* argv[])
         {
             run_tests();
             printf("Tests Passed\n");
-            return;
+            return 0;
         }
         else
         {
             printf("Usage: %s [test]\n", argv[0]);
+            return 1;
         }
     }
     else
     {
         printf("Usage: %s [test]\n", argv[0]);
+        return 1;
     }
 }
