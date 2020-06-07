@@ -162,11 +162,6 @@ void play(bool machine_turn)
     printf("\nnodes-visited: %llu\n", nodes_visited);
 }
 
-void parse_cl_params(int argc, char* argv[])
-{
-
-}
-
 // defined in tester.c
 void run_tests();
 
