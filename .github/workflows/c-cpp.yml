@@ -16,8 +16,6 @@ jobs:
         run: cmake .
       - name: make
         run: make
-      - name: tree
-        run: tree
       
   test:
     name: run_tests
@@ -26,4 +24,5 @@ jobs:
     
     steps:
       - name: test
-        run: TicTacToe test
+        run: ./TicTacToe test
+      
