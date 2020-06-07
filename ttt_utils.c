@@ -5,7 +5,7 @@ void set_piece(ttt_board* board, uint8_t cell, piece piece)
 {
     if (piece == X)
         SET_BIT(&board->x_board, cell);
-    else
+    else if(piece == O)
         SET_BIT(&board->o_board, cell);
 }
 

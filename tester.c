@@ -1,5 +1,17 @@
-#include <assert.h>
+#include <stdlib.h>
 #include "ttt_utils.h"
+
+
+void _assert(bool expression, char* file, uint32_t line)
+{
+    if(!expression)
+    {
+        printf("Assertion failed - File: %s - Line: %d", file, line);
+        exit(1);
+    }
+}
+
+#define assert(expression)      (_assert(!!(expression), __FILE__, __LINE__))
 
 
 void test_is_row()
@@ -97,7 +109,7 @@ void test_empty_full_board()
     set_piece(pb, 7, X);
     set_piece(pb, 8, O);
     set_piece(pb, 9, EMPTY);
-    assert(is_game_over(pb) == true);
+    assert(is_game_over(pb) == false);
 }
 
 void run_tests()

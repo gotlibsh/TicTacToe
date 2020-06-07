@@ -37,11 +37,6 @@ void get_child_boards(ttt_board* board, ttt_board* child_boards, piece piece, ui
     *child_count = child_index;
 }
 
-score_t max(score_t* scores, uint8_t n)
-{
-    return 0;
-}
-
 uint64_t nodes_visited = 0;
 node_result minimax(ttt_board* board, uint16_t depth, piece piece, bool is_maximizer)
 {
@@ -171,7 +166,7 @@ int main(int argc, char* argv[])
     if(argc > 1)
     {
         run_tests();
-        printf("Passed\n");
+        printf("Tests Passed\n");
         return;
     }
     
