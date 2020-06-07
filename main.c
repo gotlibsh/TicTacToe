@@ -163,7 +163,7 @@ void play(bool machine_turn)
 }
 
 // defined in tester.c
-void run_tests();
+extern void run_tests();
 
 int main(int argc, char* argv[])
 {
