@@ -6,7 +6,7 @@ on:
 
 jobs:
   build-and-test:
-    name: build_project
+    name: build_project_and_run_tests
     runs-on: ubuntu-latest
 
     steps:
