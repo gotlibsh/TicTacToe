@@ -10,8 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: step1
-        run: ls
+      - name: configure
+        uses: actions/checkout@v2
+        run: cmake .
+      - name: make
+        run: make
       
   test:
     name: run_tests
@@ -19,5 +22,5 @@ jobs:
     needs: build
     
     steps:
-      - name: step1
-        run: ls
+      - name: test
+        run: TicTacToe test
