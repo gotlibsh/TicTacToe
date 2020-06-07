@@ -43,7 +43,7 @@ node_result minimax(ttt_board* board, uint16_t depth, piece piece, bool is_maxim
     node_result result = {0};
     ttt_board child_boards[BOARD_SIZE];
     uint8_t child_count = 0;
-    score_t peak_eval = is_maximizer ? INT8_MIN : INT8_MAX;
+    score_t peak_eval = is_maximizer ? MIN_SCORE : MAX_SCORE;
     uint8_t index_of_peak = -1;
     uint8_t i = 0;
 
