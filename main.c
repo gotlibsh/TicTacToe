@@ -132,7 +132,7 @@ void play(bool machine_turn)
             do
             {
                 printf("enter cell location (1-9): ");
-                scanf_s("%hhd", &human_move);
+                scanf("%hhd", &human_move);
             } while(get_piece(&board, human_move) != EMPTY);
 
             set_piece(&board, human_move, piece);
