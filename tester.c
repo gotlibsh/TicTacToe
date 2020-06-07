@@ -142,5 +142,4 @@ void run_tests()
     test_is_diagonal();
     test_is_board_full();
     test_is_game_over();
-    assert(false);
 }
