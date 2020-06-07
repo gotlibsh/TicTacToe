@@ -47,7 +47,6 @@ node_result minimax(ttt_board* board, uint16_t depth, piece piece, bool is_maxim
 {
     node_result result = {0};
     ttt_board child_boards[BOARD_SIZE];
-    score_t child_eval[BOARD_SIZE];
     uint8_t child_count = 0;
     score_t peak_eval = is_maximizer ? INT8_MIN : INT8_MAX;
     uint8_t index_of_peak = -1;
@@ -136,7 +135,7 @@ void play(bool machine_turn)
         else
         {
             printf("enter cell location (1-9): ");
-            scanf("%hhd", &human_move);
+            scanf_s("%hhd", &human_move);
             set_piece(&board, human_move, piece);
         }
         
@@ -164,6 +163,8 @@ void play(bool machine_turn)
     printf("\nnodes-visited: %llu\n", nodes_visited);
 }
 
+// defined in tester.c
+void run_tests();
 
 int main(int argc, char* argv[])
 {
