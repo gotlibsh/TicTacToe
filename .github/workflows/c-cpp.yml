@@ -16,6 +16,8 @@ jobs:
         run: cmake .
       - name: make
         run: make
+      - name: tree
+        run: tree
       
   test:
     name: run_tests
