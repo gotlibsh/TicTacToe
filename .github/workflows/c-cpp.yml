@@ -5,7 +5,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  build-and-test:
     name: build_project
     runs-on: ubuntu-latest
 
@@ -16,13 +16,5 @@ jobs:
         run: cmake .
       - name: make
         run: make
-      
-  test:
-    name: run_tests
-    runs-on: ubuntu-latest
-    needs: build
-    
-    steps:
       - name: test
         run: ./TicTacToe test
-      
