@@ -87,7 +87,27 @@ void test_is_diagonal()
     assert(IS_REV_DIAGONAL(b.x_board) == false);
 }
 
-void test_empty_full_board()
+void test_is_board_full()
+{
+    ttt_board b = {0};
+    ttt_board* pb = &b;
+
+    b.x_board = BOARD_MASK;
+    b.o_board = 0x0000;
+    assert(IS_BOARD_FULL(b.x_board, b.o_board) == true);
+
+    CLEAN_BOARD(b);
+    assert(IS_BOARD_FULL(b.x_board, b.o_board) == false);
+
+    b.x_board = 0b0000000101010101;
+    b.o_board = 0b0000000010101000;
+    assert(IS_BOARD_FULL(b.x_board, b.o_board) == false);
+
+    b.o_board = 0b0000000010101010;
+    assert(IS_BOARD_FULL(b.x_board, b.o_board) == true);
+}
+
+void test_is_game_over()
 {
     ttt_board b = {0};
     ttt_board* pb = &b;
@@ -110,6 +130,9 @@ void test_empty_full_board()
     set_piece(pb, 8, O);
     set_piece(pb, 9, EMPTY);
     assert(is_game_over(pb) == false);
+
+    set_piece(pb, 9, O);
+    assert(is_game_over(pb) == true);
 }
 
 void run_tests()
@@ -117,5 +140,6 @@ void run_tests()
     test_is_row();
     test_is_col();
     test_is_diagonal();
-    test_empty_full_board();
+    test_is_board_full();
+    test_is_game_over();
 }

@@ -28,6 +28,7 @@
 #define IS_ANY_COL(brd)             (IS_COL(brd, 1) || IS_COL(brd, 2) || IS_COL(brd, 3))
 #define IS_ANY_DIAGONAL(brd)        (IS_DIAGONAL(brd) || IS_REV_DIAGONAL(brd))
 #define IS_WON(brd)                 (IS_ANY_ROW(brd) || IS_ANY_COL(brd) || IS_ANY_DIAGONAL(brd))
+#define IS_BOARD_FULL(x_brd, o_brd) (((x_brd) | (o_brd)) == BOARD_MASK)
 
 typedef int8_t                      score_t;
 #define MAX_SCORE                   INT8_MAX
@@ -40,8 +41,8 @@ typedef uint8_t                     bool;
 /*
     Represents a Tic Tac Toe board.
 
-    x_board represents the locations of the X pieces on the board
-    o_board represents the locations of the O pieces on the board
+    x_board represents the locations of the X pieces on the board.
+    o_board represents the locations of the O pieces on the board.
 
     On each board, only the 9 lower bits are used.
 */
@@ -51,6 +52,9 @@ typedef struct _ttt_board
     uint16_t o_board;
 } ttt_board;
 
+/*
+    Represents a TicTacToe board piece.
+*/
 typedef enum _piece
 {
     X       = 0,
@@ -58,6 +62,12 @@ typedef enum _piece
     EMPTY   = 2
 } piece;
 
+/*
+    Represents a minimax result computed for a single board state.
+
+    child_index is the index of the child board of the given board that is recommended as next move.
+    eval is the final evaluation for the given board.
+*/
 typedef struct _node_result
 {
     uint8_t child_index;

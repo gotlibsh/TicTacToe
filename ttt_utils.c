@@ -26,9 +26,7 @@ void print_board(ttt_board* board)
 
 bool is_game_over(ttt_board* board)
 {
-    bool is_board_full = (board->x_board | board->o_board) == BOARD_MASK;
-
-    if (is_board_full)
+    if (IS_BOARD_FULL(board->x_board, board->o_board))
     {
         return true;
     }
