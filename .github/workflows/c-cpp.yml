@@ -1,0 +1,27 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    name: build_project
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: configure
+        uses: actions/checkout@v2
+      - name: cmake
+        run: cmake .
+      - name: make
+        run: make
+      
+  test:
+    name: run_tests
+    runs-on: ubuntu-latest
+    needs: build
+    
+    steps:
+      - name: test
+        run: TicTacToe test
