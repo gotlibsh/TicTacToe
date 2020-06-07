@@ -162,17 +162,35 @@ void play(bool machine_turn)
     printf("\nnodes-visited: %llu\n", nodes_visited);
 }
 
+void parse_cl_params(int argc, char* argv[])
+{
+
+}
+
 // defined in tester.c
 void run_tests();
 
 int main(int argc, char* argv[])
 {
-    if(argc > 1)
+    if(argc == 1)
     {
-        run_tests();
-        printf("Tests Passed\n");
-        return;
+        play(false);
     }
-    
-    play(false);
+    else if(argc == 2)
+    {
+        if (strcmp(argv[1], "test") == 0)
+        {
+            run_tests();
+            printf("Tests Passed\n");
+            return;
+        }
+        else
+        {
+            printf("Usage: %s [test]\n", argv[0]);
+        }
+    }
+    else
+    {
+        printf("Usage: %s [test]\n", argv[0]);
+    }
 }
